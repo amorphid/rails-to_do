@@ -2,7 +2,7 @@
 
 <ul>
   <% @to_dos.each do |t| %>
-    <li>
+    <li id=<%= "to_do_#{t.id}" %>>
       <%= t.description %>
       <%= link_to(
         "del",

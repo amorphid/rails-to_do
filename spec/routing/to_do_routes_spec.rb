@@ -8,7 +8,8 @@ describe ToDosController do
   it do
     expect(delete: "/to_dos/:id").to route_to(
       controller: "to_dos",
-      id: ":id"
+      action:     "destroy",
+      id:         ":id"
     )
   end
 

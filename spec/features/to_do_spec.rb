@@ -9,4 +9,14 @@ feature "ToDo" do
     click_button("Submit")
     expect(page).to have_content(description)
   end
+
+  scenario "deletion" do
+    to_do = Fabricate(:to_do, description: description)
+    visit to_dos_path
+    expect(page).to have_content(description)
+    within("#to_do_#{to_do.id}") {
+      click_link("del")
+    }
+    expect(page).to not_have_content(description)
+  end
 end
