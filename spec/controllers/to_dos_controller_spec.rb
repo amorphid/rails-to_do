@@ -4,7 +4,7 @@ describe ToDosController do
   context "#create" do
     it "creates a ToDo w/ valid input" do
       pre_count = ToDo.count
-      post :create, to_do: Fabricate.build(:to_do)
+      post :create, to_do: Fabricate.attributes_for(:to_do)
       expect(ToDo.count).to eq(pre_count + 1)
     end
   end
