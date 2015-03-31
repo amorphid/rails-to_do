@@ -9,6 +9,15 @@ describe ToDosController do
     end
   end
 
+  context "#destroy" do
+    it "creates a ToDo w/ valid input" do
+      to_do = Fabricate(:to_do)
+      pre_count = ToDo.count
+      delete :destroy, id: to_do.id
+      expect(ToDo.count).to eq(pre_count - 1)
+    end
+  end
+
   context "#index" do
     it "sets @to_dos" do
       to_dos = Fabricate.times(2, :to_do)
