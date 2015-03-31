@@ -1,5 +1,13 @@
 <h1>ToDos</h1>
 
+<ul>
+  <% @to_dos.each do |t| %>
+    <li>
+      <%= t.description %>
+    </li>
+  <% end %>
+</ul>
+
 <%= form_for ToDo.new do |f| %>
   <p>
     <%= f.label :description %>
