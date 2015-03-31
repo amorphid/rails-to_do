@@ -15,6 +15,7 @@ group :development, :test do
   gem "faker", "1.4.3"
   gem "pry-byebug", "3.1.0"
   gem 'rspec-rails', '~> 3.0'
+  gem "shoulda-matchers", "2.8.0"
   gem "spring"
   gem "web-console", "~> 2.0"
 
