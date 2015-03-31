@@ -4,6 +4,12 @@
   <% @to_dos.each do |t| %>
     <li>
       <%= t.description %>
+      <%= link_to(
+        "del",
+        to_do_path(t),
+        'data-method': :delete,
+        confirm: "Are you sure ?"
+      )%>
     </li>
   <% end %>
 </ul>
