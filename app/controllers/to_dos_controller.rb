@@ -5,6 +5,12 @@ class ToDosController < ApplicationController
     redirect_to to_dos_path
   end
 
+  def destroy
+    to_do = ToDo.find(params[:id])
+    to_do.destroy
+    redirect_to to_dos_path
+  end
+
   def index
     @to_dos = ToDo.all
   end

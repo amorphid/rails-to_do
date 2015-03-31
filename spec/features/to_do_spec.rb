@@ -17,6 +17,6 @@ feature "ToDo" do
     within("#to_do_#{to_do.id}") {
       click_link("del")
     }
-    expect(page).to not_have_content(description)
+    expect(page).not_to have_content(description)
   end
 end
