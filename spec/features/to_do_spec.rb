@@ -5,7 +5,8 @@ feature "ToDo" do
 
   scenario "creation" do
     visit to_dos_path
-    fill "to_do_description", with: description
+    fill_in "to_do_description", with: description
+    click_button("Submit")
     expect(page).to have_content(description)
   end
 end
