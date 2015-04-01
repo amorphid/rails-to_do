@@ -2,14 +2,22 @@
 
 <ul>
   <% @to_dos.each do |t| %>
-    <li id=<%= "to_do_#{t.id}" %>>
+    <li id=<%= "to_do_#{t.id}"%>>
       <%= t.description %>
-      <%= link_to(
-        "del",
-        to_do_path(t),
-        'data-method': :delete,
-        data: { confirm: "Are you sure ?" }
-      )%>
+      <a href="#" class="not_hidden">del</a>
+      <br />
+      <span class="hidden">
+        Are you sure?
+        &nbsp;&nbsp;
+        <%= link_to(
+          "confirm",
+          to_do_path(t),
+          'data-method': :delete
+        )%>
+        &nbsp;&nbsp;
+        <a class="cancel_deletion_link"
+           href="#">cancel</a>
+      </span>
     </li>
   <% end %>
 </ul>
@@ -23,3 +31,37 @@
     <%= f.submit "Submit" %>
   </p>
 <% end %>
+
+<script>
+  $(document).ready(function () {
+    $(".hidden").hide();
+
+    $(".not_hidden").on("click", function (event) {
+      event.preventDefault();
+      var notHidden = $(this);
+      var hidden     = notHidden.parent().find(".hidden");
+
+      swap(notHidden, hidden);
+    });
+
+    $(".cancel_deletion_link").on("click", function (event) {
+      event.preventDefault();
+
+      var notHiddenLink = $(this);
+      var notHidden  = notHiddenLink.parent();
+      var hidden     = notHidden.parent().find(".hidden");
+
+      swap(notHidden, hidden);
+    });
+
+    function swap (notHidden, hidden) {
+      notHidden.addClass("hidden");
+      notHidden.removeClass("not_hidden");
+      notHidden.hide();
+
+      hidden.addClass("not_hidden");
+      hidden.removeClass("hidden");
+      hidden.show();
+    }
+  })
+</script>
