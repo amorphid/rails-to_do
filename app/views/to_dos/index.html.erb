@@ -5,10 +5,10 @@
     <% active(@to_dos).each do |t| %>
       <li id=<%= "to_do_#{t.id}"%>>
         <%= t.description %>
-        <%= button_to(
-          "Completed",
-          update_to_do_path(t),
-          'data-method': :delete
+        <%= link_to(
+          "complete",
+          to_do_path(t),
+          'data-method': :put
         )%>
         <a href="#" class="not_hidden">del</a>
         <br />
