@@ -9,7 +9,7 @@ feature "ToDo" do
     within("#completed") {
       expect(page).not_to have_content(description)
     }
-    click_link("complete")
+    find(".complete_link").click
     within("#completed") {
       expect(page).to have_content(description)
     }
