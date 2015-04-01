@@ -5,11 +5,11 @@ feature "ToDo" do
 
   scenario "completion" do
     visit to_dos_path
-    within("completed") {
+    within("#completed") {
       expect(page).not_to have_content(description)
     }
     click_button("complete")
-    within("completed") {
+    within("#completed") {
       expect(page).to have_content(description)
     }
   end

@@ -1,26 +1,28 @@
-<h1>ToDos</h1>
+<div id="#active">
+  <h1>Active ToDos</h1>
 
-<ul>
-  <% @to_dos.each do |t| %>
-    <li id=<%= "to_do_#{t.id}"%>>
-      <%= t.description %>
-      <a href="#" class="not_hidden">del</a>
-      <br />
-      <span class="hidden">
-        Are you sure?
-        &nbsp;&nbsp;
-        <%= link_to(
-          "confirm",
-          to_do_path(t),
-          'data-method': :delete
-        )%>
-        &nbsp;&nbsp;
-        <a class="cancel_deletion_link"
-           href="#">cancel</a>
-      </span>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% active(@to_dos).each do |t| %>
+      <li id=<%= "to_do_#{t.id}"%>>
+        <%= t.description %>
+        <a href="#" class="not_hidden">del</a>
+        <br />
+        <span class="hidden">
+          Are you sure?
+          &nbsp;&nbsp;
+          <%= link_to(
+            "confirm",
+            to_do_path(t),
+            'data-method': :delete
+          )%>
+          &nbsp;&nbsp;
+          <a class="cancel_deletion_link"
+             href="#">cancel</a>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <%= form_for ToDo.new do |f| %>
   <p>
@@ -31,6 +33,32 @@
     <%= f.submit "Submit" %>
   </p>
 <% end %>
+
+<div id="#completed">
+  <h1>Completed ToDos</h1>
+
+  <ul>
+    <% completed(@to_dos).each do |t| %>
+      <li id=<%= "to_do_#{t.id}"%>>
+        <%= t.description %>
+        <a href="#" class="not_hidden">del</a>
+        <br />
+        <span class="hidden">
+          Are you sure?
+          &nbsp;&nbsp;
+          <%= link_to(
+            "confirm",
+            to_do_path(t),
+            'data-method': :delete
+          )%>
+          &nbsp;&nbsp;
+          <a class="cancel_deletion_link"
+             href="#">cancel</a>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <script>
   $(document).ready(function () {
