@@ -16,5 +16,13 @@
  */
 
 .delete_link {
-  float:right;
+  float: right;
+}
+
+#to_do_description {
+  width: 89%;
+}
+
+#to_do_submit {
+  width: 10%;
 }
