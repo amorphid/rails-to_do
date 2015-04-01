@@ -25,4 +25,12 @@ describe ToDosController do
       expect(assigns[:to_dos]).to eq(to_dos)
     end
   end
+
+  context "#update" do
+    it "updates a ToDo w/ valid input" do
+      to_do = Fabricate(:to_do, )
+      put :update, id: to_do.id, to_do: { is_completed: true }
+      expect(ToDo.find(to_do.id).is_completed).to eq(true)
+    end
+  end
 end
