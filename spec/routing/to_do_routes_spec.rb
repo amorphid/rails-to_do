@@ -16,4 +16,12 @@ describe ToDosController do
   it do
     expect(post: "/to_dos").to route_to("to_dos#create")
   end
+
+  it do
+    expect(put: "/to_dos/:id").to route_to(
+      controller: "to_dos",
+      action:     "update",
+      id:         ":id"
+    )
+  end
 end
