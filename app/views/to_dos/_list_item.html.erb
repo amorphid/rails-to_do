@@ -1,0 +1,25 @@
+<li id=<%= "to_do_#{to_do.id}"%>>
+  <%= to_do.description %>
+  <%  unless to_do.is_completed %>
+    <%= link_to(
+      "complete",
+      to_do_path(to_do.id, to_do: {is_completed: true}),
+      'data-method': :put
+    )%>
+  <% end %>
+  <a href="#" class="not_hidden">del</a>
+  <br />
+  <span class="hidden">
+    Are you sure?
+    &nbsp;&nbsp;
+    <%= link_to(
+      "confirm",
+      to_do_path(to_do),
+      'data-method': :delete
+    )%>
+    &nbsp;&nbsp;
+    <a class="cancel_deletion_link"
+       href="#">cancel</a>
+  </span>
+</li>
+
