@@ -3,6 +3,17 @@ require "rails_helper"
 feature "ToDo" do
   let(:description) { "Hey, look...  a ToDo!" }
 
+  scenario "completion" do
+    visit to_dos_path
+    within("completed") {
+      expect(page).not_to have_content(description)
+    }
+    click_button("complete")
+    within("completed") {
+      expect(page).to have_content(description)
+    }
+  end
+
   scenario "creation" do
     visit to_dos_path
     expect(page).not_to have_content(description)
