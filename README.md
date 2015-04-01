@@ -18,7 +18,7 @@ Useful Rake tasks
 =================
 
 - Setup => `bundle exec rake setup` (creates & seeds database)
-- Reset => `bundle exec rake reset`
+- Reset => `bundle exec rake reset` (drops datebase, then runs `rake setup`)
 - Test  => `bundle exec rspec`
 
 Features
