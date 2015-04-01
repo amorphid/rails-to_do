@@ -12,7 +12,7 @@ Built & tested w/ following versions:
 - Ruby 2.2.1
 - Rails 4.2.1
 - SQLite 1.3.10
-- PhantomJS 2.0.o
+- PhantomJS 2.0.0
 
 Useful Rake tasks
 =================
