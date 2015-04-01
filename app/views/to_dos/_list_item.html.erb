@@ -1,4 +1,4 @@
-<li id="<%= "to_do_#{to_do.id}"%>">
+<li id="<%= "to_do_#{to_do.id}"%>" class="list-group-item">
   <%= to_do.description %>
   <%  unless to_do.is_completed %>
     <%= link_to(

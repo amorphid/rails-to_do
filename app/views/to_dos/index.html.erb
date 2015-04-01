@@ -1,6 +1,6 @@
 <div id="active">
   <h1>Active ToDos</h1>
-  <ul>
+  <ul class="list-group">
     <% active(@to_dos).each do |t| %>
       <%= render "list_item", to_do: t %>
     <% end %>
@@ -21,7 +21,7 @@
 <div id="completed">
   <h1>Completed ToDos</h1>
 
-  <ul>
+  <ul class="list-group">
     <% completed(@to_dos).each do |t| %>
       <%= render "list_item", to_do: t %>
     <% end %>
