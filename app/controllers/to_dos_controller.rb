@@ -15,9 +15,15 @@ class ToDosController < ApplicationController
     @to_dos = ToDo.all
   end
 
+  def update
+    to_do = ToDo.find(params[:id])
+    to_do.update(to_do_params)
+    redirect_to to_dos_path
+  end
+
   private
 
   def to_do_params
-    params.require(:to_do).permit(:description)
+    params.require(:to_do).permit(:description, :is_completed)
   end
 end

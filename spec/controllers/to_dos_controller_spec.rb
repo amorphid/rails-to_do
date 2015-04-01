@@ -28,7 +28,7 @@ describe ToDosController do
 
   context "#update" do
     it "updates a ToDo w/ valid input" do
-      to_do = Fabricate(:to_do, )
+      to_do = Fabricate(:to_do, is_completed: false)
       put :update, id: to_do.id, to_do: { is_completed: true }
       expect(ToDo.find(to_do.id).is_completed).to eq(true)
     end

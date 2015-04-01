@@ -7,7 +7,7 @@
         <%= t.description %>
         <%= link_to(
           "complete",
-          to_do_path(t),
+          to_do_path(t.id, to_do: {is_completed: true}),
           'data-method': :put
         )%>
         <a href="#" class="not_hidden">del</a>
