@@ -28,7 +28,7 @@ feature "ToDo" do
       Fabricate(:to_do, description: description)
       visit to_dos_path
       expect(page).to have_content(description)
-      click_link("del")
+      find(".delete_link").click
     end
 
     scenario "cancel", js: true do
