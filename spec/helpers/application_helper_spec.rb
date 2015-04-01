@@ -13,4 +13,17 @@ describe ApplicationHelper do
       expect(active([a,b,c,d])).to eq([a,d])
     end
   end
+
+  context "#completed" do
+    it "returns an completed collection" do
+      struct = Struct.new(:id, :is_completed)
+
+      a = struct.new(1, false)
+      b = struct.new(2, true)
+      c = struct.new(3, true)
+      d = struct.new(3, false)
+
+      expect(completed([a,b,c,d])).to eq([b,c])
+    end
+  end
 end
