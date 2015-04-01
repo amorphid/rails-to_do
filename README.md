@@ -19,7 +19,7 @@ Useful Rake tasks
 
 - Setup => `bundle exec rake setup` (creates & seeds database)
 - Reset => `bundle exec rake reset`
-- Test  => `bundle exec rspec
+- Test  => `bundle exec rspec`
 
 Features
 ========
