@@ -9,12 +9,9 @@
 
 <%= form_for ToDo.new do |f| %>
   <p>
-    <%= f.label :description %>
+    <%= f.hidden_field :is_completed, value: false %>
     <%= f.text_field :description %>
-  </p>
-  <%= f.hidden_field :is_completed, value: false %>
-  <p>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Add" %>
   </p>
 <% end %>
 

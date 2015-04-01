@@ -19,7 +19,7 @@ feature "ToDo" do
     visit to_dos_path
     expect(page).not_to have_content(description)
     fill_in "to_do_description", with: description
-    click_button("Submit")
+    click_button("Add")
     expect(page).to have_content(description)
   end
 
