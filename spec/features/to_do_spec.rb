@@ -11,25 +11,22 @@ feature "ToDo" do
     expect(page).to have_content(description)
   end
 
-  scenario "confirm deletion", js: true do
-    to_do = Fabricate(:to_do, description: description)
-    visit to_dos_path
-    expect(page).to have_content(description)
-    within("#to_do_#{to_do.id}") {
+  context "deletion" do
+    background do
+      Fabricate(:to_do, description: description)
+      visit to_dos_path
+      expect(page).to have_content(description)
       click_link("del")
-      click_link("confirm")
-    }
-    expect(page).not_to have_content(description)
-  end
+    end
 
-  scenario "cancel deletion", js: true do
-    to_do = Fabricate(:to_do, description: description)
-    visit to_dos_path
-    expect(page).to have_content(description)
-    within("#to_do_#{to_do.id}") {
-      click_link("del")
+    scenario "cancel", js: true do
       click_link("cancel")
-    }
-    expect(page).to have_content(description)
+      expect(page).to have_content(description)
+    end
+
+    scenario "confirm", js: true do
+      click_link("confirm")
+      expect(page).not_to have_content(description)
+    end
   end
 end
