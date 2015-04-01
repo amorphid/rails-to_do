@@ -4,11 +4,12 @@ feature "ToDo" do
   let(:description) { "Hey, look...  a ToDo!" }
 
   scenario "completion" do
+    Fabricate(:to_do, description: description)
     visit to_dos_path
     within("#completed") {
       expect(page).not_to have_content(description)
     }
-    click_button("complete")
+    click_link("complete")
     within("#completed") {
       expect(page).to have_content(description)
     }
